@@ -1,0 +1,162 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title> TRACKGROUND </title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'css/styles-home.css' %}" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="navbar-brand nav-item"><a class="nav-link" href="{% url 'login' %}">Log in</a></li>
+                        <li class="navbar-brand nav-item"><a class="nav-link" href="{% url 'signup' %}">Sign up</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead">
+        </header>
+        <!-- Services-->
+        <section class="page-section" id="services">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase"> What is Trackground ?</h2>
+                    <h3 class="section-subheading text-muted">The Spotify extension for your playlist management</h3>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-card"></i>
+                            <i class="fas fa-music fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Tracks</h4>
+                        <p class="text-muted">Create your own playlist by adding your favorite tracks, the best songs of your favorite artists</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-card"></i>
+                            <i class="fas fa-image fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Cover image</h4>
+                        <p class="text-muted">Generate AI cover images for your playlists with DALL-E to best represent the music style, the artists, etc. </p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-card"></i>
+                            <i class="fas fa-share fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Share</h4>
+                        <p class="text-muted">Upload your new playlist on Spotify. <br/> 
+                            Trick : look at your playlist popularity before :)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+       
+        <!-- Team-->
+        <section class="page-section" id="team">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
+                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="{% static 'assets/img/thomas_jaillon.jpeg' %}" alt="..." />
+                            <h4>Thomas Jaillon</h4>
+                            <p class="text-muted">Chief Data Scientist Officer Specialist</p>
+                            <a class="btn btn-dark btn-social mx-2" href="https://github.com/jaillont" aria-label="Thomas Jaillon Github Repo"><i class="fab fa-github"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/thomas-jaillon/" aria-label="Thomas Jaillon LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="assets/img/team/2.jpg" alt="..." />
+                            <h4>Quentin Barthélémy</h4>
+                            <p class="text-muted">Senior Data Scientist Engineer</p>
+                            <a class="btn btn-dark btn-social mx-2" href="https://github.com/QuentinDevPython" aria-label="Quentin Barthélémy Github Repo"><i class="fab fa-github"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/quentin-barth%C3%A9l%C3%A9my-585534197/" aria-label="Quentin Barthélémy LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                </div>
+            </div>
+        </section>
+        <!-- Clients-->
+        <div class="py-5" id="clients">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-1 my-3"></div>
+                    <div class="col-md-2 col-sm-6 my-3">
+                        <a href="#!"><img id="python" class="img-fluid img-brand d-block mx-auto" src="{% static 'assets/img/python.png' %}" alt="..." aria-label="Python Logo" /></a>
+                    </div>
+                    <div class="col-md-2 col-sm-6 my-3">
+                        <a href="#!"><img id="docker" class="img-fluid img-brand d-block mx-auto" src="{% static 'assets/img/docker.png' %}" alt="..." aria-label="Docker Logo" /></a>
+                    </div>
+                    <div class="col-md-2 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="{% static 'assets/img/django.png' %}" alt="..." aria-label="Django Logo" /></a>
+                    </div>
+                    <div class="col-md-2 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="{% static 'assets/img/keras.png' %}" alt="..." aria-label="Keras Logo" /></a>
+                    </div>
+                    <div class="col-md-2 col-sm-6 my-3">
+                        <a href="#!"><img id="postgresql" class="img-fluid img-brand d-block mx-auto" src="{% static 'assets/img/postgresql.png' %}" alt="..." aria-label="Postgresql Logo" /></a>
+                    </div>
+                    <div class="col-md-1 my-3"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer-->
+        <footer class="footer py-4" id="footer">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; Trackground 2022</div>
+                    <div class="col-lg-4 my-3 my-lg-0">
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
+                        <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        
+       
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'js/scripts-home.js' %}"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>
