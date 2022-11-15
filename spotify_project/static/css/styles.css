@@ -7922,7 +7922,7 @@ textarea.form-control-lg {
 }
 
 .rounded-circle {
-  border-radius: 50% !important;
+  clip-path:ellipse(50% 50%) !important;
 }
 
 .rounded-pill {

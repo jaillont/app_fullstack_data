@@ -52,3 +52,34 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 
 });
+
+/* Animations du texte */
+
+const ratio = .4
+const options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: ratio
+}
+
+const handleIntersect = function(entries, observer){
+    entries.forEach(function (entry) {
+        if (entry.intersectionRatio > ratio) {
+            console.log('visible')
+            entry.target.classList.add('reveal-visible')
+            observer.unobserve(entry.target)
+        }
+        else{
+            console.log('invible')
+        }
+    })
+}
+
+const observer = new IntersectionObserver(handleIntersect, options)
+observer.observe(document.querySelector('.reveal-up-1'))
+observer.observe(document.querySelector('.reveal-up-2'))
+observer.observe(document.querySelector('.reveal-down-1'))
+observer.observe(document.querySelector('.reveal-up-3'))
+observer.observe(document.querySelector('.reveal-z-1'))
+observer.observe(document.querySelector('.reveal-left-1'))
+observer.observe(document.querySelector('.reveal-right-1'))
