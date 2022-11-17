@@ -1,0 +1,2 @@
+pip install keras_cv --upgrade
+pip install tensorflow_datasets
