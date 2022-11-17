@@ -1,2 +1,4 @@
 Django==4.1.2
 psycopg2-binary==2.9.5
+spotipy==2.20.0
+social-auth-app-django==5.0.0

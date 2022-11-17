@@ -10,10 +10,7 @@ urlpatterns = [
     ),
     path(
         'login',
-        LoginView.as_view(
-            template_name='user/login.html',
-            redirect_authenticated_user=True
-        ),
+        user.views.login_page,
         name='login'
     ),
     path(

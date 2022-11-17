@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.shortcuts import render, redirect
-from django.contrib.auth import logout, login
+from django.contrib.auth import logout, login, authenticate
 from django.http import HttpResponse
 
 from . import forms
@@ -25,6 +25,25 @@ def signup_page(request):
     return render(
         request,
         'user/signup.html',
+        context={
+            'form': form
+        }
+    )
+
+def login_page(request):
+    form = forms.CustomLoginForm()
+
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(request, username=username, password=password)
+
+    if user is not None:
+        login(request, user)
+        return redirect(settings.LOGIN_REDIRECT_URL)
+
+    return render(
+        request,
+        'user/login.html',
         context={
             'form': form
         }

@@ -48,5 +48,6 @@ class User(AbstractUser):
     }
     
     role = models.CharField(max_length=30, choices=ROLE_CHOICES, verbose_name='Rôle', default=USER)
+    spotify_username = models.CharField(max_length=50, null=False, verbose_name = "Spotify Username")
     
     objects = UserManager()

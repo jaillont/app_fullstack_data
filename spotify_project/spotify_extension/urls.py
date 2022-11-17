@@ -26,12 +26,11 @@ urlpatterns = [
         name='home'
     ),
     path(
-        'playlists/',
-        views.playlists,
-        name='playlists'
-    ),
-    path(
         'user/',
         include('user.urls')
+    ),
+    path(
+        'playlists/',
+        include('playlists.urls')
     ),
 ]
