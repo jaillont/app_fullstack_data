@@ -32,14 +32,14 @@ def signup_page(request):
 
 def login_page(request):
     form = forms.CustomLoginForm()
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
 
-    username = request.POST['username']
-    password = request.POST['password']
-    user = authenticate(request, username=username, password=password)
-
-    if user is not None:
-        login(request, user)
-        return redirect(settings.LOGIN_REDIRECT_URL)
+        if user is not None:
+            login(request, user)
+            return redirect(settings.LOGIN_REDIRECT_URL)
 
     return render(
         request,

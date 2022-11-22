@@ -33,4 +33,9 @@ urlpatterns = [
         'playlists/',
         include('playlists.urls')
     ),
+    path(
+        'try/',
+        views.playlists2,
+        name="playlists2"
+    ),
 ]
