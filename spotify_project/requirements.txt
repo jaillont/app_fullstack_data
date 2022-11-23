@@ -1,4 +1,13 @@
 Django==4.1.2
+
 psycopg2-binary==2.9.5
+
 spotipy==2.20.0
-social-auth-app-django==5.0.0
+
+tensorflow==2.11.0
+tensorflow-datasets==4.7.0
+tensorflow-estimator==2.11.0
+tensorflow-io-gcs-filesystem==0.27.0
+tensorflow-metadata==1.11.0
+
+keras-cv==0.3.4
