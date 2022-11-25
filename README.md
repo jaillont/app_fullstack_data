@@ -21,3 +21,7 @@ Trackground permet de visualiser vos playlists, d'en créer ou de les modifier. 
 
 :nut_and_bolt: Fonctionnement de l'application:
 
+<p>
+     <img src="https://github.com/jaillont/app_fullstack_data/tree/main/images/electro.png" width="320" height="320" />
+    <img src="https://github.com/jaillont/app_fullstack_data/tree/main/images/metal.png" width="320" height="320" />
+</p>
