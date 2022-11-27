@@ -51,15 +51,21 @@ Trackground permet de visualiser et créer vos playlists. Vous aurez également 
 `docker-compose exec web python manage.py migrate`  
 `docker-compose up`  
 
-https://user-images.githubusercontent.com/71150391/204161571-c83dff3b-359a-4ee1-a65a-8ab3b26223c5.mov
+Enfin, se rendre sur l'adresse localhost:8000  
 
-
-Enfin, se rendre sur l'adresse localhost:8000
-Connectez vous sur Trackground avec les identifiants tests:  
+Option 1:  
+Sur la page login,  
+Attention, avant de se connecter sur l'application connectez vous à l'adresse google suivante:  
 Email : trackgrounduser@gmail.com  
 Mot de passe : MyPassword123&  
-Ou bien inscrivez vous, puis connectez votre compte spotify en récupérant votre l'identifiant et l'email de votre compte sur le lien suivant:  
+Utilisez les mêmes identifiants sur trackground.  
+Une fois connecté vous serez rediriger vers spotify pour accepter la connection et il faut alors se connecter à spotify via le même email en cliquant sur connexion avec google avec les mêmes identifiants. (trackgrounduser@gmail.com et mdp: MyPassword123&)  
+
+Option 2:  
+Sinon par la page signup,  
+inscrivez vous, puis connectez votre compte spotify en récupérant votre identifiant et l'email de votre compte sur le lien suivant:  
 https://www.spotify.com/fr/account/overview/?utm_source=spotify&utm_medium=menu&utm_campaign=your_account  
+Attention, il faut bien utiliser le même email pour l'application que pour son compte spotify.  
 Avec à ces identifiants, trackground se connecte à l'API de spotify en utilisant la librairie spotipy.  
 
 Sur trackground on retrouve:  
