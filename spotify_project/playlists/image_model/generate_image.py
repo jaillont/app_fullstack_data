@@ -2,7 +2,7 @@ import os
 import matplotlib.pyplot as plt
 from tensorflow import keras
 
-from stable_diffusion_tensorflow.stable_diffusion_tf.stable_diffusion import StableDiffusion
+from stable_diffusion_tf.stable_diffusion import StableDiffusion
 
 
 class GenerateImage:
