@@ -54,6 +54,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+)
+
 ROOT_URLCONF = 'spotify_extension.urls'
 
 TEMPLATES = [
@@ -143,3 +147,9 @@ LOGIN_URL = 'login'
 
 LOGIN_REDIRECT_URL = 'spotify_login'
 LOGOUT_REDIRECT_URL = 'home'
+
+# EMAIL PARAMS
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = 'a03c3143d891cb'
+EMAIL_HOST_PASSWORD = '4a4b1e6a835ba7'
+EMAIL_PORT = '2525'

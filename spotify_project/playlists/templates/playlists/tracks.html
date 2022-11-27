@@ -1,0 +1,126 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <title> TRACKGROUND </title>
+
+    <!-- CSS files -->
+    <link href="{% static 'css/styles-playlists.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/skins/color-1.css' %}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Style Switcher -->
+    <link rel="stylesheet" href="{% static 'css/style-switcher.css' %}">
+    <link href="{% static 'css/skins/color-1.css' %}" rel="stylesheet" class="alternate-style" title="color-1"
+        disabled />
+    <link href="{% static 'css/skins/color-2.css' %}" rel="stylesheet" class="alternate-style" title="color-2"
+        disabled />
+    <link href="{% static 'css/skins/color-3.css' %}" rel="stylesheet" class="alternate-style" title="color-3"
+        disabled />
+
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Aside Start -->
+        <div class="aside">
+            <div class="logo">
+                <a href="{% url 'home' %}"> <span>Track</span>ground</a>
+            </div>
+            <div class="nav-toggler">
+                <span> </span>
+            </div>
+            <ul class="nav">
+                <li>
+                    <a href="/playlists/{{ user }}/#home" id="home-button" class=""><i class="fa fa-home"></i> Home </a>
+                </li>
+                <li>
+                    <a href="/playlists/{{ user }}/#playlist" id="playlist-button"><i class="fa fa-music"></i> Playlists
+                    </a>
+                </li>
+                <li>
+                    <a href="/playlists/{{ user }}/#services" id="services-button"><i class="fa fa-plus"></i> Services
+                    </a>
+                </li>
+                <li>
+                    <a href="/playlists/{{ user }}/#account" id="account-button"><i class="fa fa-user"></i> Account </a>
+                </li>
+                <li>
+                    <a href="/playlists/{{ user }}/#contact" id="contact-button"><i class="fa fa-comments"></i> Contact
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+
+            <!-- Tracks Section -->
+            <section class="tracks section" id="tracks">
+                <div class="container">
+                    <div class="row">
+                        <div class="tracks-heading">
+                            {% if playlist.url == False %}
+                                <img src="/static/{{ playlist.cover_image }}" alt="">
+                            {% else %}
+                                <img src="{{ playlist.cover_image }}" alt="">
+                            {% endif %}
+                            <div class="playlist-info">
+                                <h2> Playlist Tracks </h2>
+                                <h3> {{ playlist.title }} </h3>
+                                <p> {{ playlist.description }}</p>
+                                <p class="popularity"> Popularity : {{ global_popularity }}</p>
+                                <p class="duration"> {{playlist.number_of_tracks }} tracks • {{ playlist.duration }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="tracks-info">
+                            {% for item in tracks %}
+                                <div class="tracks-display">
+                                    <img src="{{ item.track.cover_image }}" alt="">
+                                    <p class="track-name"> {{ item.track.name }} </p>
+                                    <p class="track-artist"> {{ item.track.artist_name }} </p>
+                                    <p class="track-duration"> {{ item.track.duration }} </p>
+                                    <br />
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Style Switcher -->
+    <div class="style-switcher">
+        <div class="style-switcher-toggler s-icon">
+            <i class="fas fa-cog fa-spin"></i>
+        </div>
+        <div class="day-night s-icon">
+            <i class="fas"></i>
+        </div>
+        <h4> Theme Colors </h4>
+        <div class="colors">
+            <span class="color-1" onClick="setActiveStyle('color-1')"></span>
+            <span class="color-2" onClick="setActiveStyle('color-2')"></span>
+            <span class="color-3" onClick="setActiveStyle('color-3')"></span>
+        </div>
+    </div>
+
+
+    <!-- JS files -->
+    <script src="{% static 'js/scripts-playlists.js' %}"></script>
+    <script src="{% static 'js/style-switcher.js' %}"></script>
+</body>
+
+</html>

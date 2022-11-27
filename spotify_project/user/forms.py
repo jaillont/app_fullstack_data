@@ -2,8 +2,6 @@ from django.contrib.auth.forms import get_user_model
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
 
-from django import forms
-
 class SignupForm(UserCreationForm):
     error_css_class = 'error'
     required_css_class = 'required'

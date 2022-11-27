@@ -5,9 +5,17 @@ psycopg2-binary==2.9.5
 spotipy==2.20.0
 
 tensorflow==2.11.0
+tensorflow-addons==0.18.0
 tensorflow-datasets==4.7.0
 tensorflow-estimator==2.11.0
 tensorflow-io-gcs-filesystem==0.27.0
 tensorflow-metadata==1.11.0
 
 keras-cv==0.3.4
+
+matplotlib==3.6.2
+
+ftfy==6.1.1
+
+Pillow>=6.2.0
+

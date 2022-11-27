@@ -1,7 +1,8 @@
 from django.contrib import admin
 
-from playlists.models import Playlist, Track, PlaylistWithTracks
+from playlists.models import Playlist, Track, PlaylistWithTrack
+
 
 admin.site.register(Playlist)
 admin.site.register(Track)
-admin.site.register(PlaylistWithTracks)
+admin.site.register(PlaylistWithTrack)

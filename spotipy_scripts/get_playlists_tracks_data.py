@@ -33,7 +33,7 @@ ids=ids[["id","name"]]
 #this list will  all the tracks data
 songs=[]
 #this keys will be the data we'll keep
-new_keys=["name","id","duration_ms","popularity","artists","album","playlist"]
+new_keys=["name","id","duration_ms","popularity","artists","album","playlist", "preview_url"]
 
 #iterate over playlists ids and names
 for x in range(ids.shape[0]):
@@ -55,6 +55,9 @@ df=pd.DataFrame(songs)
 #iterate over this df to get artists name from nested dictionaries
 for i in range(df.shape[0]):
     df.artists[i]=df.artists[i][0].get('name')
+    if df.preview_url[i] == None:
+        df.preview_url[i]="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley"
+
 
 #compute some stats from the df
 mean_popularity_score=df.popularity.mean()

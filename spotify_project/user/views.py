@@ -5,6 +5,8 @@ from django.http import HttpResponse
 
 from . import forms
 
+from user.models import User
+
 
 def hello(request):
     return HttpResponse('<h1>Hello Django!</h1>')
@@ -35,8 +37,8 @@ def login_page(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
 
+        user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
             return redirect(settings.LOGIN_REDIRECT_URL)

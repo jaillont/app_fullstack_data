@@ -18,6 +18,7 @@ from django.urls import path, include
 
 from playlists import views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path(
@@ -32,10 +33,5 @@ urlpatterns = [
     path(
         'playlists/',
         include('playlists.urls')
-    ),
-    path(
-        'try/',
-        views.playlists2,
-        name="playlists2"
     ),
 ]

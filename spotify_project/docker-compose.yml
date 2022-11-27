@@ -10,6 +10,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
   web:
+    image: myusufs/stable-diffusion-tf
     build: .
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
@@ -20,5 +21,8 @@ services:
       - POSTGRES_NAME=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+      - HEIGHT=640
+      - WIDTH=640
+      - MIXED_PRECISION=no
     depends_on:
       - db

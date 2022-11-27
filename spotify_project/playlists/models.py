@@ -1,4 +1,38 @@
 from django.db import models
+from user.models import User
+
+
+class Track(models.Model):
+
+    class Meta:
+        ordering = ['artist_name', 'popularity']
+
+    def __str__(self):
+        return f'{self.name} | {self.artist_name}'
+
+    name = models.CharField(
+        max_length=150,
+        null=False
+    )
+    artist_name = models.CharField(
+        max_length=150,
+        null=False
+    )
+    duration_ms = models.IntegerField(
+        default=0
+    )
+    duration = models.CharField(
+        max_length=20,
+        default=""
+    )
+    popularity = models.IntegerField(
+        default=0
+    )
+    cover_image = models.CharField(
+        max_length=1000,
+        default=""
+    )
+
 
 class Playlist(models.Model):
 
@@ -12,64 +46,42 @@ class Playlist(models.Model):
         max_length=50,
         null=False
     )
-    duration = models.DurationField(
-        null=True
+    description = models.CharField(
+        max_length=100,
+        null=False,
+        default= "No description provide"
     )
-    number_of_tracks = models.IntegerField(
-        null=True
+    number_of_tracks = models.IntegerField(null=True)
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE
     )
     cover_image = models.CharField(
-        max_length = 50,
+        max_length=1000,
+        default="https://i0.wp.com/lesoreillescurieuses.com/wp-content/uploads/2017/07/arcade-fire-everything-now.jpg?w=640&ssl=1"
+    )
+    url = models.BooleanField(
+        default=True
+    )
+    duration = models.CharField(
+        max_length=20,
         null=True
     )
 
 
-class Track(models.Model):
-
-    class Meta:
-        ordering = ['artist_name']
-
-    def __str__(self):
-        return f'{self.title} | {self.artist_name} | {self.album_name}'
-
-    title = models.CharField(
-        max_length = 50,
-        null=False
-    )
-    duration = models.DurationField()
-    artist_id = models.CharField(
-        max_length = 50,
-        null=False
-    )
-    artist_name = models.CharField(
-        max_length = 50,
-        null=False
-    )
-    album_id = models.CharField(
-        max_length = 50,
-        null=False
-    )
-    album_name = models.CharField(
-        max_length = 50,
-        null=False
-    )
-
-
-class PlaylistWithTracks(models.Model):
+class PlaylistWithTrack(models.Model):
 
     class Meta:
         ordering = ['playlist']
 
     def __str__(self):
-        return f'{self.track.title} | {self.playlist.title}'
+        return f'{self.playlist.title} | {self.track.name}'
 
-    track = models.ForeignKey(
-        Track,
-        null=False,
-        on_delete=models.CASCADE
-    )
     playlist = models.ForeignKey(
         Playlist,
-        null=False,
+        on_delete=models.CASCADE
+    )
+    track = models.ForeignKey(
+        Track,
         on_delete=models.CASCADE
     )

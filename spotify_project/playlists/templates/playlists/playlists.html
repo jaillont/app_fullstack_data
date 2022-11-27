@@ -2,165 +2,454 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Shop Homepage - Start Bootstrap Template</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-        <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="{% static 'css/styles-playlists.css' %}" rel="stylesheet" />
-    </head>
-    <body>
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-purple">
-            <div class="container px-4 px-lg-5">
-                <img class="navbar-brand" href="{% url 'home' %}" src="{% static 'assets/img/logo.png' %}" /> 
-                <a class="navbar-brand" href="{% url 'home' %}">Trackground</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">My Playlists</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Create</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#!">New Image</a></li>
-                                <li><hr class="dropdown-divider" /></li>
-                                <li><a class="dropdown-item" href="#!">New Playlist</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <ul class="d-flex navbar-nav" style="margin-bottom: -0.25rem">
-                        <li class="nav-item">
-                            <a class="nav-link" style="margin-top: 0.65rem;" href="{% url 'logout' %}">
-                                <button class="btn btn-outline-light" type="submit">
-                                    <i class="bi-person-fill me-1"></i>
-                                    {{ user.first_name }}
-                                </button>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" style="margin-left: 0.5rem" href="{% url 'logout' %}">
-                                <i class="bi-box-arrow-right fs-1"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- Header-->
-        <header class="bg-pink py-5">
-            <div class="container px-4 px-lg-5 my-5">
-                <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder"> My Playlists  </h1>
-                    <p class="lead fw-normal text-white-50 mb-0">With this shop hompeage template</p>
-                </div>
-            </div>
-        </header>
-        <!-- Section-->
-        <section class="py-5 bg-pink-2">
-            <div class="container px-4 px-lg-5 mt-5">
-                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name= "viewport" content="width-device-width, initial-scale=1.0">
+    <title> TRACKGROUND </title>
 
+    <!-- CSS files -->
+    <link href="{% static 'css/styles-playlists.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/skins/color-1.css' %}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-                    {% for item in playlists %}
-                        <div class="col mb-5">
-                            <div class="card h-100">
-                                <!-- Product image-->
-                                <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                                <!-- Product details-->
-                                <div class="card-body p-4">
-                                    <div class="text-center">
-                                        <!-- Product name-->
-                                        <h5 class="fw-bolder"> {{ item.name }}</h5>
-                                        <img src="{{ item.images.0.url }}" alt="">
-                                        
-                                        <!-- Product price-->
-                                        $40.00 - $80.00
+    <!-- Style Switcher -->
+    <link rel="stylesheet" href="{% static 'css/style-switcher.css' %}">
+    <link href="{% static 'css/skins/color-1.css' %}" rel="stylesheet" class="alternate-style" title="color-1" disabled />
+    <link href="{% static 'css/skins/color-2.css' %}" rel="stylesheet" class="alternate-style" title="color-2" disabled />
+    <link href="{% static 'css/skins/color-3.css' %}" rel="stylesheet" class="alternate-style" title="color-3" disabled />
+
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Aside Start -->
+        <div class="aside">
+            <div class="logo">
+                <a href="{% url 'home' %}"> <span>Track</span>ground</a>
+            </div>
+            <div class="nav-toggler">
+                <span> </span>
+            </div>
+            <ul class="nav">
+                <li>
+                    <a href="#home" id="home-button" class="active"><i class="fa fa-home"></i> Home </a>
+                </li>
+                <li>
+                    <a href="#playlist" id="playlist-button"><i class="fa fa-music"></i> Playlists </a>
+                </li>
+                <li>
+                    <a href="#services" id="services-button"><i class="fa fa-plus"></i> Services </a>
+                </li>
+                <li>
+                    <a href="#account" id="account-button"><i class="fa fa-user"></i> Account </a>
+                </li>
+                <li>
+                    <a href="#contact" id="contact-button"><i class="fa fa-comments"></i> Contact </a>
+                </li>
+            </ul>
+        </div>
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Homa Section -->
+            <section class="home active section" id="home">
+                <div class="container">
+                    <div class="row">
+                        <div class="home-info padd-15">
+                            <h3 class="hello"> A Big Welcome from the <span class="name"> Trackground Team</span></h3>
+                            <h3 class="my-profession"> You did the <span class="typing">  </span> coming here !</h3>
+                            <p> 
+                                With Trackground Music, you'll be able to manage your Spotify playlists with more ease, more features.
+                                <br />
+                                <br />
+                                Want to customize your playlists? You can generate your own cover images using our intelligent image generation algorithm.
+                                Want to listen to your playlists with your friends? Check the popularity of your music beforehand to avoid any discomfort :p
+                                <br />
+                                <br />
+                                Don't hesitate to give us feedback! It's thanks to you that Trackground Music can improve and answer your desires!
+
+                            </p>
+                            <a href="#" class="btn hire-me" id="contact-button-2"> Contact us </a>
+                        </div>
+                        <div class="home-img padd-15">
+                            <img src="{% static 'assets/img/home-user.png' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Account Section -->
+            <section class="account section" id="account">
+                <div class="container">
+                    <div class="row">
+                        <div class="section-title padd-15">
+                            <h2> Account </h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="account-content padd-15">
+                            <div class="row">
+                                <div class="account-text padd-15">
+                                    <h3> You are log in as <span> {{ user.first_name }} {{user.last_name }}</span></h3>
+                                    <p> 
+                                        Here you have access to all the personal information that you entered when you created your Trackground Music account.
+                                        <br />
+                                        An update will be made later to allow you to modify them or to delete your account.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="personal-info padd-15">
+                                    <div class="row">
+                                        <div class="info-item padd-15">
+                                            <p> First Name : <span> {{ user.first_name }} </span></p>
+                                        </div>
+                                        <div class="info-item padd-15">
+                                            <p> Last Name : <span> {{ user.last_name }} </span></p>
+                                        </div>
+                                        <div class="info-item padd-15">
+                                            <p> Email : <span> {{ user.email }} </span></p>
+                                        </div>
+                                        <div class="info-item-2 padd-15">
+                                            <p> Spotify Username : <span> {{ user.spotify_username }} </span></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="buttons padd-15">
+                                            <a href="#" class="btn"> Modify </a>
+                                        </div>
                                     </div>
                                 </div>
-                                <!-- Product actions-->
-                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+                                <div class="stats padd-15">
+                                    <div class="row">
+                                        <div class="stats-item padd-15">
+                                            <h5> Number of playlists </h5>
+                                            <div class="progress">
+                                                <div class="progress-in" style="width: 40%;"> </div>
+                                                <div class="stats-percent"> {{ account_stats.0 }} </div>
+                                            </div>
+                                        </div>
+                                        <div class="stats-item padd-15">
+                                            <h5> Global playlists popularity </h5>
+                                            <div class="progress">
+                                                <div class="progress-in global-popularity"> </div>
+                                                <div class="stats-percent"> {{ account_stats.1 }} </div>
+                                            </div>
+                                        </div>
+                                        <div class="stats-item padd-15">
+                                            <h5> Mean playlist duration </h5>
+                                            <div class="progress">
+                                                <div class="progress-in mean-playlist-duration"> </div>
+                                                <div class="stats-percent"> {{ account_stats.2 }} </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    {% endfor %}
-
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder"> Add one </h5>
-                                    <!-- Product price-->
-                                    $40.00 - $80.00
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
-                            </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Services Section -->
+            <section class="services section"  id="services">
+                <div class="container">
+                    <div class="row">
+                        <div class="section-title padd-15">
+                            <h2> Services </h2>
                         </div>
                     </div>
-
+                    <div class="row">
+                        <div class="service-item padd-15">
+                            <a href="#new-playlist" id="button-new-playlist">
+                                <div class="service-item-inner">
+                                    <div class="icon">
+                                        <i class="fa fa-music"></i>
+                                    </div>
+                                    <h4> New Playlist </h4>
+                                    <p> By clicking on this service, you have access to the creation of a new playlist. Make us dance ! <br /><br /><br /></p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="service-item padd-15">
+                            <a href="#new-image" id="button-new-image">
+                                <div class="service-item-inner">
+                                    <div class="icon">
+                                        <i class="fa fa-image"></i>
+                                    </div>
+                                    <h4> Cover image </h4>
+                                    <p> By clicking on this service, you have access to the creation of a cover image. You can then assign 
+                                        it to one of your playlists to know its theme / genre in a glance. </p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="service-item padd-15">
+                            <a href="https://open.spotify.com/" target="_blank">
+                                <div class="service-item-inner">
+                                    <div class="icon">
+                                        <i class="fa fa-headphones"></i>
+                                    </div>
+                                    <h4> Spotify </h4>
+                                    <p> By clicking on this service, you will be automatically redirected to the official Spotify page. <br /><br /></p>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <!-- Clients-->
-        <div class="py-5" id="clients">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-md-1 my-3"></div>
-                    <div class="col-md-2 col-sm-6 my-3">
-                        <a href="https://www.python.org"><img id="python" class="img-fluid img-brand d-block mx-auto" src="{% static 'assets/img/python.png' %}" alt="..." aria-label="Python Logo" /></a>
+            </section>
+            <!-- Playlist Section -->
+            <section class="playlists section" id="playlist">
+                <div class="container">
+                    <div class="row">
+                        <div class="section-title padd-15">
+                            <h2> Playlists </h2>
+                        </div>
                     </div>
-                    <div class="col-md-2 col-sm-6 my-3">
-                        <a href="https://www.docker.com"><img id="docker" class="img-fluid img-brand d-block mx-auto" src="{% static 'assets/img/docker.png' %}" alt="..." aria-label="Docker Logo" /></a>
+                    <div class="row">
+                        <div class="playlist-heading padd-15">
+                            <h2> Here you can have access to your created playlists : </h2> 
+                        </div>
                     </div>
-                    <div class="col-md-2 col-sm-6 my-3">
-                        <a href="https://www.docker.com"><img class="img-fluid img-brand d-block mx-auto" src="{% static 'assets/img/django.png' %}" alt="..." aria-label="Django Logo" /></a>
+                    <div class="row">
+                        {% for item in playlists %}
+                            <div class="playlist-item padd-15">
+                                <div class="playlist-item-inner shadow-dark">
+                                    <div class="playlist-img">
+                                        {% if item.url == False %}
+                                        <a href="{{ item.id }}"> <img src="/static/{{ item.cover_image }}" alt=""> </a>
+                                        {% else %}
+                                        <a href="{{ item.id }}"> <img src="{{ item.cover_image }}" alt=""> </a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <h3> {{ item.title }}</h3>
+                                <p>{{ item.description }}</p> 
+                                <p> {{ item.duration }} </p>
+                                <a href="{{ item.id }}" class="btn hire-me" id="tracks"> Tracks </a>
+                            </div>
+                        {% endfor %}
                     </div>
-                    <div class="col-md-2 col-sm-6 my-3">
-                        <a href="https://keras.io"><img class="img-fluid img-brand d-block mx-auto" src="{% static 'assets/img/keras.png' %}" alt="..." aria-label="Keras Logo" /></a>
-                    </div>
-                    <div class="col-md-2 col-sm-6 my-3">
-                        <a href="https://www.postgresql.org"><img id="postgresql" class="img-fluid img-brand d-block mx-auto" src="{% static 'assets/img/postgresql.png' %}" alt="..." aria-label="Postgresql Logo" /></a>
-                    </div>
-                    <div class="col-md-1 my-3"></div>
                 </div>
-            </div>
+            </section>
+            <!-- Contact Section -->
+            <section class="contact section" id="contact">
+                <div class="container">
+                    <div class="row">
+                        <div class="section-title padd-15">
+                            <h2> Contact Us </h2>
+                        </div>
+                    </div>
+                    <h3 class="contact-title padd-15"> Have You Any Questions ?</h3>
+                    <h4 class="contact-sub-title padd-15"> WE ARE AT YOUR SERVICE </h4>
+                    <div class="row">
+                        <div class="contact-info-item padd-15">
+                            <div class="icon"><i class="fa fa-phone"></i></div>
+                            <h4> Call Us On </h4>
+                            <p> 07 34 56 98 10 </p> 
+                        </div>
+                        <div class="contact-info-item padd-15">
+                            <div class="icon"><i class="fa fa-map-marker-alt"></i></div>
+                            <h4> Office </h4>
+                            <p> ESIEE Paris </p> 
+                        </div>
+                        <div class="contact-info-item padd-15">
+                            <div class="icon"><i class="fa fa-envelope"></i></div>
+                            <h4> Email </h4>
+                            <p> quentin.barthelemy@edu.esiee.fr </p> 
+                            <p> thomas.jaillon@edu.esiee.fr </p> 
+                        </div>
+                        <div class="contact-info-item padd-15">
+                            <div class="icon"><i class="fa fa-globe-europe"></i></div>
+                            <h4> Github </h4>
+                            <p> https://github.com/<br/>jaillont/app_fullstack_data </p> 
+                        </div>
+                    </div>
+                    <h3 class="contact-title padd-15"> SEND US AN EMAIL </h3>
+                    <h4 class="contact-sub-title padd-15"> WE ARE VERY RESPOSIVE TO MESSAGES </h4>
+                    <div class="row">
+                        <div class="contact-form padd-15">
+                            <form action="" method="post" class="form">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="form-item col-12 padd-15">
+                                        <div class="form-group">
+                                            {{ contact_form.subject }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-item col-12 padd-15">
+                                        <div class="form-group">
+                                            {{ contact_form.message }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-item col-12 padd-15">
+                                        <div class="form-group">
+                                            <button type="submit" class="btn"> Send Message </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- New Playlist -->
+            <section class="new-playlist section"  id="new-playlist">
+                <div class="container">
+                    <div class="row">
+                        <div class="section-title padd-15">
+                            <h2> Create Playlist </h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="new-playlist-heading padd-15">
+                            <h2> Here you can create a new playlist : </h2> 
+                        </div>
+                    </div>
+    
+                    <div class="row">
+                        <div class="new-playlist-form padd-15">
+                            <form action="" method="post" class="form" name="playlist-form">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="form-item col-6 padd-15">
+                                        <div class="form-group">
+                                            <p> {{ form.title }} </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-item col-12 padd-15">
+                                        <div class="form-group">
+                                            <p> {{ form.description }} </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-item col-12 padd-15">
+                                        <div class="form-group">
+                                            <p> {{ form.tracks }} </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="new-playlist-heading padd-15">
+                                        <h2> You can also choose a cover image among the ones you have created : </h2> 
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="image-listing padd-15">
+                                        <div class="image-group">
+                                            {% for image in images %}
+                                                <a class="select-image" href="#" label={{image}}><img src="/static/assets/img/cover/{{ image }}" alt=""></a>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-item col-12 padd-15">
+                                        <div class="form-group">
+                                            <p> {{ form.image }} </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-item col-12 padd-15">
+                                        <div class="form-group">
+                                            <button type="submit" class="btn"> Create </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- New Image -->
+            <section class="new-image section"  id="new-image">
+                <div class="container">
+                    <div class="row">
+                        <div class="section-title padd-15">
+                            <h2> Generate Image </h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="new-image-heading padd-15">
+                            <h2> Here you can create a new playlist : </h2> 
+                        </div>
+                    </div>
+    
+                    <div class="row">
+                        <div class="new-image-form padd-15">
+                            <form action="" method="post" class="form" name="image-form">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="form-item col-12 padd-15">
+                                        <div class="form-group">
+                                            <p> {{ image_form.image_description }} </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-item col-6 padd-15">
+                                        <div class="form-group">
+                                            <p> {{ image_form.image_type }} </p>
+                                        </div>
+                                    </div>
+                                    <div class="form-item col-6 padd-15">
+                                        <div class="form-group">
+                                            <p> {{ image_form.image_aspect }} </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-item col-12 padd-15">
+                                        <div class="form-group">
+                                            <p> {{ image_form.image_name }} </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <p class="padd-15"> NB : The image generation can take several minutes. You will be redirect to another page when process done.  </p>
+                                </div>
+                                <div class="row">
+                                    <div class="form-item col-12 padd-15">
+                                        <div class="form-group">
+                                            <button type="submit" class="btn"> Create </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-        <!-- Footer-->
-        <footer class="footer py-4" id="footer">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-4 text-lg-start">Copyright &copy; Trackground 2022</div>
-                    <div class="col-lg-4 my-3 my-lg-0">
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                    <div class="col-lg-4 text-lg-end">
-                        <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
-                        <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="{% static 'js/scripts-playlists.js' %}"></script>
-    </body>
+    </div>
+
+    <!-- Style Switcher -->
+     <div class="style-switcher">
+        <div class="style-switcher-toggler s-icon">
+            <i class="fas fa-cog fa-spin"></i>
+        </div>
+        <div class="day-night s-icon">
+            <i class="fas"></i>
+        </div>
+        <h4> Theme Colors </h4>
+        <div class="colors">
+            <span class="color-1" onClick="setActiveStyle('color-1')"></span>
+            <span class="color-2" onClick="setActiveStyle('color-2')"></span>
+            <span class="color-3" onClick="setActiveStyle('color-3')"></span>
+        </div>
+     </div>
+
+
+    <!-- JS files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js" referrerpolicy="no-referrer"></script>
+    <script src="{% static 'js/scripts-playlists.js' %}"></script>
+    <script src="{% static 'js/style-switcher.js' %}"></script>
+</body>
 </html>
