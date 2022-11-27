@@ -32,6 +32,10 @@ class Track(models.Model):
         max_length=1000,
         default=""
     )
+    preview_url = models.CharField(
+        max_length=1000,
+        default="https://p.scdn.co/mp3-preview/135c5c2caba0db75f946dec7e93fdb752fe8d399?cid=533e61a793454e5387d1c5c2ab7208d8"
+    )
 
 
 class Playlist(models.Model):
@@ -47,7 +51,7 @@ class Playlist(models.Model):
         null=False
     )
     description = models.CharField(
-        max_length=100,
+        max_length=1000,
         null=False,
         default= "No description provide"
     )

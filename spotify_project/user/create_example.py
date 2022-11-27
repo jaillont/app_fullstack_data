@@ -6,20 +6,16 @@ class CreateTrackgroundExample:
     def __init__(self):
         pass
 
-    def create_user(self):
+    def create_user_example(self):
         try:
-            User.objects.get(email = 'quentin.barthelemy@edu.esiee.fr')
+            User.objects.get(email = 'trackgrounduser@gmail.com')
         except:
             user = User.objects.create_user(
-                email = 'quentin.barthelemy@edu.esiee.fr',
+                email = 'trackgrounduser@gmail.com',
                 password = "MyPassword123&"
             )
             user.set_password = "MyPassword123&"
-            user.first_name = "Quentin"
-            user.last_name = "Barthélémy"
-            user.spotify_username = "31tzzkjdwe32nspi4chb6gvz7qhm"
+            user.first_name = "Jean"
+            user.last_name = "Dupont"
+            user.spotify_username = "31yct2zkcgfwd6txz2jtdsibztyy"
             user.save()
-
-
-    def create_user_example(self):
-        self.create_user()

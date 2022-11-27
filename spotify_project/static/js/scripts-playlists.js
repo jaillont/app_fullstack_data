@@ -17,6 +17,17 @@ const totalNavList = navList.length;
 const allSection = document.querySelectorAll(".section");
 const totalSection = allSection.length;
 
+const contact_button_2 = document.getElementById("contact-button-2");
+const contact_button = document.getElementById("contact-button");
+
+contact_button_2.addEventListener("click", () => {
+    for (let j=0; j < totalNavList; j++){
+        navList[j].querySelector("a").classList.remove("active");
+    }
+    contact_button.classList.add("active");
+    showSection(contact_button);
+});
+
 for (let i=0; i < totalNavList; i++){
     const a = navList[i].querySelector("a");
     a.addEventListener("click", function() {

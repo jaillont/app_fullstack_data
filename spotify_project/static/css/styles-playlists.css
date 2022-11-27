@@ -1,5 +1,5 @@
 .account .global-popularity {
-  width: 50%;
+  width: 56%;
 }
 
 .account .mean-playlist-duration {
@@ -791,22 +791,28 @@ h3.my-profession {
 }
 
 .tracks .tracks-info .tracks-display .track-name {
-    flex: 0 0 25%;
-    max-width: 25%;
+    flex: 0 0 15%;
+    max-width: 20%;
     margin-top: 10px;
     margin-right: 10%;
 }
 
 .tracks .tracks-info .tracks-display .track-artist {
-    flex: 0 0 25%;
-    max-width: 25%;
+    flex: 0 0 15%;
+    max-width: 20%;
     margin-top: 10px;
     margin-right: 10%;
 }
 
 .tracks .tracks-info .tracks-display .track-duration {
-    flex: 0 0 25%;
-    max-width: 25%;
+    flex: 0 0 15%;
+    max-width: 20%;
+    margin-top: 10px;
+}
+
+.tracks .tracks-info .tracks-display .audio {
+    flex: 0 0 15%;
+    max-width: 20%;
     margin-top: 10px;
 }
 

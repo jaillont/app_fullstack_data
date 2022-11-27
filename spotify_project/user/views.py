@@ -5,25 +5,32 @@ from django.http import HttpResponse
 
 from . import forms
 
-from user.models import User
-
 
 def hello(request):
     return HttpResponse('<h1>Hello Django!</h1>')
+
 
 def logout_user(request):
     logout(request)
     return redirect(settings.LOGOUT_REDIRECT_URL)
 
+
 def signup_page(request):
+
     form = forms.SignupForm()
     if request.method == 'POST':
+
         form = forms.SignupForm(request.POST)
+
         if form.is_valid():
             user = form.save()
             # auto-login user
-            login(request, user)
+            login(
+                request,
+                user
+            )
             return redirect(settings.LOGIN_REDIRECT_URL)
+
     return render(
         request,
         'user/signup.html',
@@ -32,15 +39,22 @@ def signup_page(request):
         }
     )
 
+
 def login_page(request):
+
     form = forms.CustomLoginForm()
     if request.method == 'POST':
+
         username = request.POST['username']
         password = request.POST['password']
 
         user = authenticate(request, username=username, password=password)
+
         if user is not None:
-            login(request, user)
+            login(
+                request,
+                user
+            )
             return redirect(settings.LOGIN_REDIRECT_URL)
 
     return render(
