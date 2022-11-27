@@ -76,7 +76,6 @@ Cette page vous permet de générer des images grâce à de simples descriptions
 🎶 La page playlist :  
 Cette page contient l'ensemble de vos playlists, il ne vous reste plus qu'à en sélectioner une pour accéder à l'ensemble de ses musiques. Dans chaque playlist on retrouve les informations importantes comme la durée de la playlist et de chaque musique mais aussi les artistes et la possibilité d'écouter la musique.  
 
-
-
+PS : Nous avons rencontré des problèmes avec docker compose sur certains pc, nous ne savons pas l'expliquer. Si jamais vous rencontrez ce problème nous serons ravis de pouvoir vous faire une démonstration.
 
 
