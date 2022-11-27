@@ -43,6 +43,12 @@ Trackground permet de visualiser et créer vos playlists. Vous aurez également 
 `git clone https://github.com/jaillont/app_fullstack_data.git`  
 `cd app_fullstack_data`  
 `cd spotify_project`  
+`docker-compose up -d --build`  
+`docker-compose exec web python manage.py makemigrations user`  
+`docker-compose exec web python manage.py migrate user`  
+`docker-compose exec web python manage.py makemigrations playlists`  
+`docker-compose exec web python manage.py migrate playlists`  
+`docker-compose exec web python manage.py migrate`
 `docker-compose up`  
 
 https://user-images.githubusercontent.com/71150391/204161571-c83dff3b-359a-4ee1-a65a-8ab3b26223c5.mov
