@@ -1,4 +1,18 @@
-# Trackground
+# Trackground  
+
+
+Voici une vue d'ensemble de l'application :   
+
+
+
+https://user-images.githubusercontent.com/64276525/204151927-b24fae7b-968e-4209-a1ea-93b2c0c47dd0.mp4  
+
+
+
+
+https://user-images.githubusercontent.com/64276525/204151966-fcd01fad-21d1-4c33-a98b-911cf755d868.mp4  
+
+
 
 :bulb: Idée du projet:  
 Construire une application permettant de gérer, créer, enrichir et customiser ses playlists spotify.
@@ -51,7 +65,6 @@ Cette page vous permet de générer des images grâce à de simples descriptions
 🎶 La page playlist :  
 Cette page contient l'ensemble de vos playlists, il ne vous reste plus qu'à en sélectioner une pour accéder à l'ensemble de ses musiques. Dans chaque playlist on retrouve les informations importantes comme la durée de la playlist et de chaque musique mais aussi les artistes et la possibilité d'écouter la musique.  
 
-Voici une vue d'ensemble de l'application :   
 
 
 
