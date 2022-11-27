@@ -38,6 +38,13 @@ Trackground permet de visualiser et créer vos playlists. Vous aurez également 
 </p>
 
 :nut_and_bolt: Lancement de l'application :  
+
+
+`git clone https://github.com/jaillont/app_fullstack_data.git`  
+`cd app_fullstack_data`  
+`cd spotify_project`  
+`docker-compose up`  
+
 Connectez vous sur Trackground avec les identifiants tests:  
 Email : trackgrounduser@gmail.com  
 Mot de passe : MyPassword123&  
