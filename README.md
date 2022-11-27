@@ -44,6 +44,10 @@ Trackground permet de visualiser et créer vos playlists. Vous aurez également 
 `cd app_fullstack_data`  
 `cd spotify_project`  
 `docker-compose up`  
+
+https://user-images.githubusercontent.com/71150391/204161571-c83dff3b-359a-4ee1-a65a-8ab3b26223c5.mov
+
+
 Enfin, se rendre sur l'adresse localhost:8000
 Connectez vous sur Trackground avec les identifiants tests:  
 Email : trackgrounduser@gmail.com  
