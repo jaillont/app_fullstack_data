@@ -20,17 +20,17 @@ from playlists.forms import CustomNewPlaylistForm, CustomContactForm, CustomImag
 CLIENT_ID = "318c76e1a8bc41b8ad39c9412c7ef341"
 CLIENT_SECRET = "f060983626184202a5a4651725687234"
 
-# ==== Create User example Start ==== #
-
-from user.create_example import CreateTrackgroundExample
-
-spotifyUserExample = CreateTrackgroundExample()
-spotifyUserExample.create_user_example()
-
-# ==== Create User example End ==== #
-
 
 def home(request):
+    
+    # ==== Create User example Start ==== #
+
+    from user.create_example import CreateTrackgroundExample
+
+    spotifyUserExample = CreateTrackgroundExample()
+    spotifyUserExample.create_user_example()
+
+    # ==== Create User example End ==== #
     
     return render(
         request,
