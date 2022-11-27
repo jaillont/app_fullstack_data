@@ -19,6 +19,7 @@ Trackground permet de visualiser et créer vos playlists. Vous aurez également 
      <img src="https://github.com/jaillont/app_fullstack_data/blob/main/images/electro.png" width="320" height="320" />
      <img src="https://github.com/jaillont/app_fullstack_data/blob/main/images/metal.png" width="320" height="320" />
      <img src="https://github.com/jaillont/app_fullstack_data/blob/main/images/sunset.png" width="320" height="320" />
+     <img src="https://github.com/jaillont/app_fullstack_data/blob/main/images/house.jpg" width="320" height="320" />
 
 </p>
 
